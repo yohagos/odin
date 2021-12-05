@@ -15,10 +15,10 @@ export class AppComponent {
   constructor(public nameService: NameService) { }
 
   public service() {
-    this.nameService.post(this.text)/* .subscribe(
-      (Response) => {
-        this.responses = Response;
+    this.nameService.post(this.text).subscribe(
+      (data) => {
+        this.responses = data;
       }
-    ) */
+    )
   }
 }
