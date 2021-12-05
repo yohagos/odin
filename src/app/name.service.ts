@@ -28,12 +28,15 @@ export class NameService {
   }
 
   public post(message: string) {
-    console.log(message)
-    console.log(environment.server)
-   return this.http.post(environment.server + "/name", {name: message}, this.httpHeader).pipe(
-      tap(data => {
-        console.log("pipe tap :" + data);
-      })
-    )
+   this.http.post(environment.server + "/name", {name: message}).subscribe({
+     next: data => {
+      console.log("next data: " + data);
+     },
+     error: err => {
+      console.log(err)
+     }
+    })
   }
+
+
 }

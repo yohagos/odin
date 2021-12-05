@@ -15,11 +15,10 @@ export class AppComponent {
   constructor(public nameService: NameService) { }
 
   public service() {
-    console.log(this.text);
-    this.nameService.post(this.text).subscribe(
+    this.nameService.post(this.text)/* .subscribe(
       (Response) => {
-        console.log(Response.toString);
+        this.responses = Response;
       }
-    )
+    ) */
   }
 }
